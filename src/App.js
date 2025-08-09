@@ -24,6 +24,7 @@ const buttonStyle = {
   borderRadius: "4px",
   border: "1px",
   backgroundColor: "oklch(0.7 0.25 235)",
+  cursor: "pointer",
 };
 
 const infoCard = {
@@ -31,7 +32,6 @@ const infoCard = {
   backgroundColor: "oklch(0.95 0 0",
   padding: "2px 6px",
   border: "1px solid black",
-  cursor: "pointer",
 };
 
 export default function App() {
