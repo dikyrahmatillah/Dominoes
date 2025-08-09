@@ -1,11 +1,10 @@
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 import {
   sortAsc,
   sortDesc,
   countDoubleNumber,
   flip,
-  removeDuplicate,
-  remove,
+  removeDuplicateTotal,
 } from "./utils";
 
 const source = [
@@ -14,28 +13,31 @@ const source = [
   [5, 1],
   [3, 4],
   [1, 1],
+  [1, 1],
   [3, 4],
   [1, 2],
 ];
 
+const buttonStyle = {
+  color: "white",
+  padding: "6px 10px",
+  borderRadius: "4px",
+  border: "1px",
+  backgroundColor: "oklch(0.7 0.25 235)",
+};
+
+const infoCard = {
+  display: "inline-block",
+  backgroundColor: "oklch(0.95 0 0",
+  padding: "2px 6px",
+  border: "1px solid black",
+  cursor: "pointer",
+};
+
 export default function App() {
   const [data, setData] = useState(source);
   const [input, setInput] = useState("");
-  const buttonStyle = {
-    color: "white",
-    padding: "6px 10px",
-    borderRadius: "4px",
-    border: "1px",
-    backgroundColor: "oklch(0.7 0.25 235)",
-  };
 
-  const infoCard = {
-    display: "inline-block",
-    backgroundColor: "oklch(0.95 0 0",
-    padding: "2px 6px",
-    border: "1px solid black",
-    cursor: "pointer",
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -55,7 +57,7 @@ export default function App() {
       </div>
       <div style={infoCard}>
         <p style={{ fontWeight: "bold", fontSize: "20px" }}>Double Numbers</p>
-        <p>{countDoubleNumber(source)}</p>
+        <p>{countDoubleNumber(data)}</p>
       </div>
       <div>
         {data.map((item, index) => {
@@ -98,7 +100,7 @@ export default function App() {
         </button>
         <button
           style={buttonStyle}
-          onClick={() => setData((prev) => removeDuplicate([...prev]))}
+          onClick={() => setData((prev) => removeDuplicateTotal([...prev]))}
         >
           Remove Dup
         </button>
@@ -112,6 +114,7 @@ export default function App() {
             style={{ padding: "4px" }}
             type="text"
             placeholder="Input number"
+            value={input}
             onChange={(e) => setInput(e.target.value)}
           />
         </div>
