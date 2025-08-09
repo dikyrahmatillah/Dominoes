@@ -29,7 +29,7 @@ const buttonStyle = {
 
 const infoCard = {
   display: "inline-block",
-  backgroundColor: "oklch(0.95 0 0",
+  backgroundColor: "oklch(0.95 0 0)",
   padding: "2px 6px",
   border: "1px solid black",
 };
